@@ -11,7 +11,7 @@ export default function LegalDisclaimer() {
         </div>
         <div className="ml-3">
           <p className="text-sm text-yellow-700">
-            <strong>Independent Contractor Station Notice:</strong> This website represents an independent contractor station and is not affiliated with, endorsed by, or a part of ExFreight corporate. We operate as an authorized independent contractor station providing logistics services. ExFreight is a registered trademark used with permission.
+            <strong>Independent Contractor Station Notice:</strong> This website represents exfreightwest, an independent contractor station operated by Blasm LLC under license from ExFreight Zeta LLC. We are not an employee, partner, or agent of ExFreight. We operate as an authorized independent contractor station providing logistics services within our licensed territory. ExFreight is a registered trademark of ExFreight Zeta LLC and is used with permission under our Station License Agreement.
           </p>
         </div>
       </div>

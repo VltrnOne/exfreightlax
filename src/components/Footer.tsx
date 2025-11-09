@@ -46,11 +46,11 @@ export default function Footer() {
         <div className="border-t border-blue-800 pt-8">
           <div className="text-center text-blue-200 mb-4">
             <p className="font-semibold text-white mb-2">Independent Contractor Station</p>
-            <p className="text-sm">This is an independent contractor station and is not affiliated with, endorsed by, or a part of ExFreight corporate. We operate as an independent contractor station providing logistics services.</p>
+            <p className="text-sm">exfreightwest is an independent contractor station operated by Blasm LLC under license from ExFreight Zeta LLC. We are not an employee, partner, or agent of ExFreight. We operate as an authorized independent contractor station providing logistics services within our licensed territory (100-mile radius around Los Angeles International Airport).</p>
           </div>
           <div className="text-center text-blue-200 text-sm">
-            <p>&copy; 2025 ExFreight. All rights reserved.</p>
-            <p className="mt-2">ExFreight is a registered trademark. Used with permission as an authorized independent contractor station.</p>
+            <p>&copy; 2025 exfreightwest (Blasm LLC). All rights reserved.</p>
+            <p className="mt-2">ExFreight is a registered trademark of ExFreight Zeta LLC. Used with permission under our Station License Agreement.</p>
           </div>
         </div>
       </div>
