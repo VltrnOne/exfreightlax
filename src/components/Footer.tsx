@@ -43,8 +43,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-blue-800 pt-8 text-center text-blue-200">
-          <p>&copy; 2025 ExFreight. All rights reserved.</p>
+        <div className="border-t border-blue-800 pt-8">
+          <div className="text-center text-blue-200 mb-4">
+            <p className="font-semibold text-white mb-2">Independent Contractor Station</p>
+            <p className="text-sm">This is an independent contractor station and is not affiliated with, endorsed by, or a part of ExFreight corporate. We operate as an independent contractor station providing logistics services.</p>
+          </div>
+          <div className="text-center text-blue-200 text-sm">
+            <p>&copy; 2025 ExFreight. All rights reserved.</p>
+            <p className="mt-2">ExFreight is a registered trademark. Used with permission as an authorized independent contractor station.</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -25,7 +25,10 @@ export default function Header() {
   return (
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-blue-900">ExFreight</Link>
+        <div className="flex flex-col">
+          <Link to="/" className="text-2xl font-bold text-blue-900">ExFreight</Link>
+          <span className="text-xs text-gray-500">Independent Contractor Station</span>
+        </div>
         
         <div className="hidden md:flex space-x-6 items-center">
           <Link to="/" className={`${isActive('/') ? 'text-orange-500' : 'text-gray-700'} hover:text-orange-500`}>Home</Link>
