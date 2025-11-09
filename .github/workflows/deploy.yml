@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.SITEGROUND_USERNAME }}
           password: ${{ secrets.SITEGROUND_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ./
+          server-dir: /public_html/
           exclude: |
             **/.git*
             **/.git*/**
@@ -46,7 +46,7 @@ jobs:
           username: ${{ secrets.SITEGROUND_USERNAME }}
           password: ${{ secrets.SITEGROUND_PASSWORD }}
           local-dir: ./public/
-          server-dir: ./content/
+          server-dir: /public_html/content/
           exclude: |
             **/.git*
             **/.git*/**
