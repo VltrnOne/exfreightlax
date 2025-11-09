@@ -68,7 +68,10 @@ out
 
 # Gatsby files
 .cache/
-public
+# Public directory - but allow content files
+public/*
+!public/content/
+!public/content/**
 
 # Storybook build outputs
 .out
