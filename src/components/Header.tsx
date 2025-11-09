@@ -26,7 +26,7 @@ export default function Header() {
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex flex-col">
-          <Link to="/" className="text-2xl font-bold text-blue-900">ExFreight</Link>
+          <Link to="/" className="text-2xl font-bold text-blue-900">exfreightwest</Link>
           <span className="text-xs text-gray-500">Independent Contractor Station</span>
         </div>
         

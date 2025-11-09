@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">ExFreight</h3>
+            <h3 className="text-2xl font-bold mb-4">exfreightwest</h3>
             <p className="text-blue-200">Your trusted global logistics partner since 1995.</p>
           </div>
 

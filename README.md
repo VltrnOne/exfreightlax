@@ -1,6 +1,6 @@
-# ExFreight West - Franchise Website
+# exfreightwest - Franchise Website
 
-This is a licensed authorized franchise website clone of ExFreight, customized for the West Coast location.
+This is a licensed authorized franchise website for exfreightwest, an independent contractor station.
 
 ## Features
 
