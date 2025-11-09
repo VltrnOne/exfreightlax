@@ -1,0 +1,45 @@
+name: Deploy to SiteGround (SSH)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build project
+        run: npm run build
+      
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SITEGROUND_SSH_KEY }}
+      
+      - name: Deploy to SiteGround via SSH
+        run: |
+          # Create deployment directory structure
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SITEGROUND_SSH_USER }}@${{ secrets.SITEGROUND_HOST }} "mkdir -p ${{ secrets.SITEGROUND_DEPLOY_PATH }}"
+          
+          # Deploy built files
+          scp -r -o StrictHostKeyChecking=no ./dist/* ${{ secrets.SITEGROUND_SSH_USER }}@${{ secrets.SITEGROUND_HOST }}:${{ secrets.SITEGROUND_DEPLOY_PATH }}/
+          
+          # Deploy public content
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SITEGROUND_SSH_USER }}@${{ secrets.SITEGROUND_HOST }} "mkdir -p ${{ secrets.SITEGROUND_PUBLIC_PATH }}"
+          scp -r -o StrictHostKeyChecking=no ./public/* ${{ secrets.SITEGROUND_SSH_USER }}@${{ secrets.SITEGROUND_HOST }}:${{ secrets.SITEGROUND_PUBLIC_PATH }}/
+

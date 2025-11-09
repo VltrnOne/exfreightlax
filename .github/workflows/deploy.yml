@@ -1,12 +1,10 @@
-name: Deploy to Production
+name: Deploy to SiteGround
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch: # Allow manual trigger
 
 jobs:
   build-and-deploy:
@@ -28,19 +26,28 @@ jobs:
       - name: Build project
         run: npm run build
       
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - name: Deploy to SiteGround via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          name: dist
-          path: dist/
-          retention-days: 7
+          server: ${{ secrets.SITEGROUND_HOST }}
+          username: ${{ secrets.SITEGROUND_USERNAME }}
+          password: ${{ secrets.SITEGROUND_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.SITEGROUND_DEPLOY_PATH }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
       
-      # Add your deployment steps here
-      # For example, if deploying to Vercel, Netlify, or another platform:
-      # - name: Deploy to Vercel
-      #   uses: amondnet/vercel-action@v25
-      #   with:
-      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
-      #     vercel-org-id: ${{ secrets.ORG_ID }}
-      #     vercel-project-id: ${{ secrets.PROJECT_ID }}
+      - name: Deploy public content to SiteGround
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SITEGROUND_HOST }}
+          username: ${{ secrets.SITEGROUND_USERNAME }}
+          password: ${{ secrets.SITEGROUND_PASSWORD }}
+          local-dir: ./public/
+          server-dir: ${{ secrets.SITEGROUND_PUBLIC_PATH }}
+          exclude: |
+            **/.git*
+            **/.git*/**
 
